@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Long polling <span id="count">0</span></h1>
+  </body>
+  <script>
+    const getData = async (prevData) => {
+      try {
+        const res = await fetch(
+          `http://localhost:8000/getData?prevData=${prevData}`,
+        );
+        const data = await res.json();
+        document.getElementById('count').innerText = data.initialData;
+
+        getData(data.initialData);
+      } catch (error) {}
+    };
+
+    getData();
+  </script>
+</html>
