@@ -14,9 +14,11 @@ app.get('/sse', (req, res) => {
 
   res.write('data: welcome to sse \n\n');
 
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     res.write(`data: new seconds ${new Date().getSeconds()} \n\n`);
   }, 1000);
+
+  res.on('close', () => clearInterval(intervalId));
 });
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
