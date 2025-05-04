@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Content security policy</h1>
+    <p id="sse-data"></p>
+
+    <script nonce="randomKey">
+      console.log('hello this in line script');
+    </script>
+
+    <script nonce="randomKey">
+      console.log('hello this in out url');
+    </script>
+
+    <script src="https://unsecure.com/abc.js"></script>
+  </body>
+</html>
