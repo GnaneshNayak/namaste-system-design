@@ -1,10 +1,10 @@
-import React from 'react';
-import Accordian from './components/Accordian';
+import React, { useState } from 'react';
+import Accordion from './components/Accordian';
 
 const App = () => {
   return (
     <div>
-      <Accordian />
+      <Accordion />
     </div>
   );
 };
